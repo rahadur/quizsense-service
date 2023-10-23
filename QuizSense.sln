@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizSense.WebApi", "QuizSense.WebApi\QuizSense.WebApi.csproj", "{3CFDC14E-0EBB-49AB-BCA1-F91C7BA4BCA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizSense.Domain", "QuizSense.Domain\QuizSense.Domain.csproj", "{1810B24A-A7AB-47C7-855B-464530C66715}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CFDC14E-0EBB-49AB-BCA1-F91C7BA4BCA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CFDC14E-0EBB-49AB-BCA1-F91C7BA4BCA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CFDC14E-0EBB-49AB-BCA1-F91C7BA4BCA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CFDC14E-0EBB-49AB-BCA1-F91C7BA4BCA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1810B24A-A7AB-47C7-855B-464530C66715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1810B24A-A7AB-47C7-855B-464530C66715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1810B24A-A7AB-47C7-855B-464530C66715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1810B24A-A7AB-47C7-855B-464530C66715}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8DE873F-1C15-4FB7-A873-130DB24F75A3}
+	EndGlobalSection
+EndGlobal
