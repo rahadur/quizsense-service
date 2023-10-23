@@ -1,6 +1,6 @@
 ﻿namespace QuizSense.Domain.Entities;
 
-public class Quize
+public class Quiz
 {
 	public long Id { get; set; }
 	public long? UserId { get; set; }

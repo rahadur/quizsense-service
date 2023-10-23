@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizSense.WebApi", "QuizSen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizSense.Domain", "QuizSense.Domain\QuizSense.Domain.csproj", "{1810B24A-A7AB-47C7-855B-464530C66715}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizSense.Infrastructure", "QuizSense.Infrastructure\QuizSense.Infrastructure.csproj", "{4AE4D60A-93F5-45A7-9B2B-AD018217062A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1810B24A-A7AB-47C7-855B-464530C66715}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1810B24A-A7AB-47C7-855B-464530C66715}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1810B24A-A7AB-47C7-855B-464530C66715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE4D60A-93F5-45A7-9B2B-AD018217062A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE4D60A-93F5-45A7-9B2B-AD018217062A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE4D60A-93F5-45A7-9B2B-AD018217062A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE4D60A-93F5-45A7-9B2B-AD018217062A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
