@@ -12,6 +12,7 @@ public static class Infrastructure
 		services.AddScoped((Func<IServiceProvider, IDatabasebClient>)(provider => new DatabaseClient(configuration.GetConnectionString("SqlConnection"))));
 
 		services.AddScoped<IQuizRepository, QuizRepository>();
+		services.AddScoped<IQuestionRepository, QuestionRepository>();
 
 		return services;
 	}

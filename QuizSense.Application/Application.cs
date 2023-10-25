@@ -13,8 +13,10 @@ public static class Application
 	{
 		services.AddInfrastructure(configuration);
 		services.AddAutoMapper(typeof(AutoMapperDtoProfile));
+
 		// Add Application Services
 		services.AddScoped<IQuizService, QuizService>();
+		services.AddScoped<IQuestionService, QuestionService>();
 
 		return services;
 	}

@@ -9,6 +9,8 @@ public class AutoMapperDtoProfile: Profile
 	{
 		CreateMap<QuizRequest, Quiz>();
 		CreateMap<Quiz, QuizResponse>();
+		CreateMap<QuestionRequest, Question>();
+		CreateMap<Question, QuestionResponse>();
 	}
 }
 

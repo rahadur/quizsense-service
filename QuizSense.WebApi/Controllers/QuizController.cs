@@ -4,8 +4,9 @@ using QuizSense.Application.Services;
 
 namespace QuizSense.WebApi.Controllers;
 
+[ApiController]
 [Route("api/[controller]")]
-public class QuizController : Controller
+public class QuizController : ControllerBase
 {
 	private readonly IQuizService quizService;
 
@@ -29,8 +30,8 @@ public class QuizController : Controller
         {
             return Ok(quiz);
         }
-        return NotFound();
-    }
+		return NotFound(new { });
+	}
 
 
     [HttpPost]

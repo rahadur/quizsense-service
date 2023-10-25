@@ -21,10 +21,10 @@ public class QuizRepository : IQuizRepository
 		return await dbClient.Get().QueryAsync<Quiz>($"SELECT * FROM {TABLE}");
 	}
 
-	public async Task<Quiz> GetByIdAsync(int id)
+	public async Task<Quiz?> GetByIdAsync(int id)
 	{
 		string sql = $"SELECT * FROM {TABLE} WHERE Id = @Id";
-		return await dbClient.Get().QuerySingleAsync<Quiz>(sql, new { Id = id });
+		return await dbClient.Get().QuerySingleOrDefaultAsync<Quiz>(sql, new { Id = id });
 	}
 
 	public async Task<Quiz> AddAsync(Quiz entity)
