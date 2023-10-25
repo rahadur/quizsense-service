@@ -15,28 +15,28 @@ public class QuizRepository : IQuizRepository
 		this.dbClient = dbClient;
 	}
 
-	public IEnumerable<Quiz> GetAll()
+
+	public async Task<IEnumerable<Quiz>> GetAllAsync()
 	{
-		return dbClient.Get().Query<Quiz>($"SELECT * FROM {TABLE}");
+		return await dbClient.Get().QueryAsync<Quiz>($"SELECT * FROM {TABLE}");
 	}
 
-	public Quiz? GetById(int id)
+	public async Task<Quiz> GetByIdAsync(int id)
 	{
 		string sql = $"SELECT * FROM {TABLE} WHERE Id = @Id";
-		return dbClient.Get().QuerySingleOrDefault<Quiz>(sql, new { Id = id });
+		return await dbClient.Get().QuerySingleAsync<Quiz>(sql, new { Id = id });
 	}
 
-	public void Add(ref Quiz entity)
+	public async Task<Quiz> AddAsync(Quiz entity)
 	{
 		string sql = $@"INSERT INTO {TABLE}
 					OUTPUT INSERTED.*
 					VALUES (@UserId, @Title, @Description, @TimeLimit, @CreatedAt, @ModifiedAt)";
 
-		entity = dbClient.Get().QuerySingle<Quiz>(sql, entity);
+		return await dbClient.Get().QuerySingleAsync<Quiz>(sql, entity);
 	}
 
-
-	public void Update(ref Quiz entity)
+	public async Task<Quiz> UpdateAsync(Quiz entity)
 	{
 		string sql = $@"UPDATE {TABLE}
 						SET 
@@ -47,15 +47,14 @@ public class QuizRepository : IQuizRepository
 						OUTPUT INSERTED.*
 						WHERE Id = @Id";
 
-		entity = dbClient.Get().QuerySingle<Quiz>(sql, entity);
+		return await dbClient.Get().QuerySingleAsync<Quiz>(sql, entity);
 	}
 
-	public void Delete(int id)
+	public async Task DeleteAsync(int id)
 	{
 		string sql = $"DELETE FROM {TABLE} WHERE Id = @Id";
-		dbClient.Get().Execute(sql, new { Id = id });
+		await dbClient.Get().ExecuteAsync(sql, new { Id = id });
 	}
-
 }
 
 public interface IQuizRepository: IRepository<Quiz>

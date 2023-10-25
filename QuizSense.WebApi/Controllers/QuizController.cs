@@ -15,16 +15,16 @@ public class QuizController : Controller
     }
 
     [HttpGet]
-    public IEnumerable<QuizResponse> Get()
+    public async Task<IEnumerable<QuizResponse>> Get()
     {
-        return quizService.GetAll().ToList();
+        return await quizService.GetAllAsync();
     }
 
 
     [HttpGet("{id}")]
-    public ActionResult Get(int id)
+    public async Task<ActionResult<QuizResponse>> Get(int id)
     {
-        var quiz = quizService.GetById(id);
+        var quiz = await quizService.GetByIdAsync(id);
         if (quiz != null)
         {
             return Ok(quiz);
@@ -34,34 +34,34 @@ public class QuizController : Controller
 
 
     [HttpPost]
-    public ActionResult Post([FromBody]QuizRequest body)
+    public async Task<ActionResult<QuizResponse>> Post([FromBody]QuizRequest body)
     {
-		var quiz = quizService.Add(body);
+		var quiz = await quizService.AddAsync(body);
         return Ok(quiz);
     }
 
 
     [HttpPut("{id}")]
-    public ActionResult Put(int id, [FromBody]QuizRequest body)
+    public async Task<ActionResult<QuizResponse>> Put(int id, [FromBody]QuizRequest body)
     {
         if (id != body.Id)
         {
             return BadRequest();
         }
-        quizService.Update(body);
-        return Ok(body);
+        var quiz = await quizService.UpdateAsync(body);
+        return Ok(quiz);
     }
 
 
     [HttpDelete("{id}")]
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> Delete(int id)
     {
-        var quiz = quizService.GetById(id);
+        var quiz = await quizService.GetByIdAsync(id);
         if(quiz == null)
         {
             return NotFound();
         }
-		quizService.Delete(id);
+		await quizService.DeleteAsync(id);
 		return Ok();
 	}
 }

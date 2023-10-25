@@ -16,35 +16,35 @@ public class QuizService: IQuizService
 		this.mapper = mapper;
 	}
 
-	public IEnumerable<QuizResponse> GetAll()
+	public async Task<IEnumerable<QuizResponse>> GetAllAsync()
 	{
-		var quizzes = quizRepository.GetAll();
+		var quizzes = await quizRepository.GetAllAsync();
 		return mapper.Map<List<QuizResponse>>(quizzes);
 	}
 
-	public QuizResponse? GetById(int id)
+	public async Task<QuizResponse> GetByIdAsync(int id)
 	{
-		var quiz = quizRepository.GetById(id);
+		var quiz = await quizRepository.GetByIdAsync(id);
 		return mapper.Map<QuizResponse>(quiz);
 	}
 
-	public QuizResponse Add(QuizRequest body)
+	public async Task<QuizResponse> AddAsync(QuizRequest body)
 	{
 		var quiz = mapper.Map<Quiz>(body);
-		quizRepository.Add(ref quiz);
-		return mapper.Map<QuizResponse>(quiz);
+		var newQuiz = await quizRepository.AddAsync(quiz);
+		return mapper.Map<QuizResponse>(newQuiz);
 	}
 
-	public QuizResponse Update(QuizRequest body)
+	public async Task<QuizResponse> UpdateAsync(QuizRequest body)
 	{
 		var quiz = mapper.Map<Quiz>(body);
-		quizRepository.Update(ref quiz);
-		return mapper.Map<QuizResponse>(quiz);
+		var updatedQuiz = await quizRepository.UpdateAsync(quiz);
+		return mapper.Map<QuizResponse>(updatedQuiz);
 	}
 
-	public void Delete(int id)
+	public async Task DeleteAsync(int id)
 	{
-		quizRepository.Delete(id);
+		await quizRepository.DeleteAsync(id);
 	}
 }
 

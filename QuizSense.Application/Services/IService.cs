@@ -2,10 +2,10 @@
 
 public interface IService<TRequest, TReponse>
 {
-	IEnumerable<TReponse> GetAll();
-	TReponse? GetById(int id);
-	TReponse Add(TRequest entity);
-	TReponse Update(TRequest entity);
-	void Delete(int id);
+	Task<IEnumerable<TReponse>> GetAllAsync();
+	Task<TReponse> GetByIdAsync(int id);
+	Task<TReponse> AddAsync(TRequest entity);
+	Task<TReponse> UpdateAsync(TRequest entity);
+	Task DeleteAsync(int id);
 }
 
