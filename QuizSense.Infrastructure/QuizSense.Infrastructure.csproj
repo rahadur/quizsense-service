@@ -15,8 +15,13 @@
 
   <ItemGroup>
     <None Remove="DbClient\" />
+    <None Remove="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DbClient\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuizSense.Domain\QuizSense.Domain.csproj" />
   </ItemGroup>
 </Project>
