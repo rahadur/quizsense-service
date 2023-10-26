@@ -16,9 +16,9 @@ public class QuizController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<QuizResponse>> Get()
+    public async Task<IEnumerable<QuizResponse>> Get([FromQuery] QueryParameterDto queryParameter)
     {
-        return await quizService.GetAllAsync();
+        return await quizService.GetAllAsync(queryParameter);
     }
 
 

@@ -16,10 +16,18 @@ public class QuestionController : ControllerBase
 	}
 
 	[HttpGet]
-	public async Task<IEnumerable<QuestionResponse>> Get()
+	public async Task<IEnumerable<QuestionResponse>> Get([FromQuery] QueryParameterDto queryParameter)
 	{
-		return await questionService.GetAllAsync();
+		return await questionService.GetAllAsync(queryParameter);
 	}
+
+
+	[HttpGet("{quizId}/quiz")]
+	public async Task<IEnumerable<QuestionResponse>> QuizQuestions(int quizId)
+	{
+		return await questionService.QuizQuestionsAsync(quizId);
+	}
+
 
 	[HttpGet("{id}")]
 	public async Task<ActionResult<QuestionResponse>> GetById(int id)
@@ -31,6 +39,7 @@ public class QuestionController : ControllerBase
 		}
 		return NotFound(new { });
 	}
+
 
 	[HttpPost]
 	public async Task<ActionResult<QuestionResponse>> Create([FromBody] QuestionRequest body)
@@ -52,6 +61,7 @@ public class QuestionController : ControllerBase
 
 		return await questionService.UpdateAsync(body);
 	}
+
 
 	[HttpDelete("{id}")]
 	public async Task<ActionResult> Delete(int id)

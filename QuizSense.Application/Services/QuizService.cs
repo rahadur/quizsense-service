@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using QuizSense.Application.Dtos;
+using QuizSense.Domain.Commom;
 using QuizSense.Domain.Entities;
 using QuizSense.Infrastructure.Repositories;
 
@@ -16,9 +17,10 @@ public class QuizService: IQuizService
 		this.mapper = mapper;
 	}
 
-	public async Task<IEnumerable<QuizResponse>> GetAllAsync()
+	public async Task<IEnumerable<QuizResponse>> GetAllAsync(QueryParameterDto? queryParameter)
 	{
-		var quizzes = await quizRepository.GetAllAsync();
+		var param = mapper.Map<QueryParameter>(queryParameter);
+		var quizzes = await quizRepository.GetAllAsync(param);
 		return mapper.Map<List<QuizResponse>>(quizzes);
 	}
 
